@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jobit — Job Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── HEADER ──────────────────────────────────────── -->
+  <header class="header">
+    <div class="header-left">
+      <div class="logo">Jobit🕯️</div> 
+      <p class="tagline">Track every opportunity.</p>
+    </div>
+    <button class="btn-add" id="btnAdd">+ Add Job</button>
+  </header>
+
+  <!-- ── STATS BAR ───────────────────────────────────── -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <span class="stat-number" id="statTotal">0</span>
+      <span class="stat-label">Total</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number accent-blue" id="statApplied">0</span>
+      <span class="stat-label">Applied</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number accent-yellow" id="statInterview">0</span>
+      <span class="stat-label">Interview</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number accent-green" id="statOffer">0</span>
+      <span class="stat-label">Offer</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number accent-red" id="statRejected">0</span>
+      <span class="stat-label">Rejected</span>
+    </div>
+  </div>
+
+  <!-- ── FILTER BAR ──────────────────────────────────── -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="applied">Applied</button>
+    <button class="filter-btn" data-filter="interview">Interview</button>
+    <button class="filter-btn" data-filter="offer">Offer</button>
+    <button class="filter-btn" data-filter="rejected">Rejected</button>
+  </div>
+
+  <!-- ── MAIN LIST ───────────────────────────────────── -->
+  <main class="main">
+    <div class="empty-state hidden" id="emptyState">
+      <div class="empty-icon">✦</div>
+      <p>No applications yet.<br/>Hit <strong>+ Add Job</strong> to start tracking.</p>
+    </div>
+    <div class="jobs-list" id="jobsList"></div>
+  </main>
+
+  <!-- ── ADD/EDIT MODAL ──────────────────────────────── -->
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Add Application</h2>
+        <button class="btn-close" id="btnClose">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="field">
+          <label class="label">Company</label>
+          <input type="text" id="fieldCompany" class="input" placeholder="e.g. Google"/>
+        </div>
+        <div class="field">
+          <label class="label">Role</label>
+          <input type="text" id="fieldRole" class="input" placeholder="e.g. Backend Engineer"/>
+        </div>
+        <div class="field">
+          <label class="label">Job URL</label>
+          <input type="url" id="fieldUrl" class="input" placeholder="https://..."/>
+        </div>
+        <div class="field">
+          <label class="label">Status</label>
+          <select id="fieldStatus" class="input">
+            <option value="applied">Applied</option>
+            <option value="interview">Interview</option>
+            <option value="offer">Offer</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="label">Notes</label>
+          <textarea id="fieldNotes" class="input textarea" placeholder="Any notes about this application..."></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-cancel" id="btnCancel">Cancel</button>
+        <button class="btn-save" id="btnSave">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
