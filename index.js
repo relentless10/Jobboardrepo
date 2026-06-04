@@ -1,4 +1,5 @@
 require("dotenv").config();
+console.log("DB:", process.env.DATABASE_URL);
 const express = require("express");
 const app = express();
 
