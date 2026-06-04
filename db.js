@@ -1,5 +1,7 @@
-const { Pool } = require("pg");
 require("dotenv").config();
+const { Pool } = require("pg");
+
+console.log("Creating pool with:", process.env.DATABASE_URL);
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
