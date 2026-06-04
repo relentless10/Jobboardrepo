@@ -3,6 +3,7 @@ const router = express.Router();
 const pool = require("../db");
 
 router.get("/", async (req, res) => {
+  console.log("DATABASE_URL:", process.env.DATABASE_URL);
   try {
     const result = await pool.query("SELECT * FROM jobs ORDER BY created_at DESC");
     res.json(result.rows);
