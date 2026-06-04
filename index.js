@@ -10,4 +10,4 @@ origin: "https://euphonious-selkie-ba2993.netlify.app"
 const jobsRouter = require("./routes/jobs");
 app.use("/jobs", jobsRouter);
 
-app.listen(3000, () => console.log("Server running on port 3000"));
+app.listen(process.env.PORT || 3000, () => console.log("Server running"));
